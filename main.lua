@@ -24,12 +24,8 @@ function HebiDB:getTable()
     return self.Table
 end
 
-customEventHooks.registerHandler("OnServerInit", function()
-    HebiDB:loadTable()
-end)
+customEventHooks.registerHandler("OnServerInit", HebiDB:loadTable())
 
-customEventHooks.registerHandler("OnServerExit", function()
-    HebiDB:writeTable()
-end)
+customEventHooks.registerHandler("OnServerExit", HebiDB:writeTable())
 
 return HebiDB
